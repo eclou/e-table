@@ -127,8 +127,7 @@ const loading = ref(false)
 const submiting = ref(false)
 const filterTimer = ref<number>()
 
-const request = axios.create()
-
+const request = props.axios || axios.create()
 
 const setFormRef = (form: FormInstance) => {
   formRef.value = form
@@ -198,8 +197,10 @@ const fetchList = () => {
     url: props.listUrl,
     params: tmpFilter,
   })
-    .then((res: unknown) => {
-      const apiData = res as apiListData
+    .then((res: any) => {
+      const apiData = res.data as apiListData
+      console.log(apiData);
+      
       if (apiData.code === 0) {
         const tmpList: [] = []
         Object.assign(tmpList, apiData.data.data)

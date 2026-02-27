@@ -1,7 +1,7 @@
+import type { AxiosInstance } from 'axios'
+import type { PropType } from 'vue'
 
-import { buildProps } from "element-plus/lib/utils/index.js"
-
-export const tableProps = buildProps({
+export const tableProps = {
   pk: {
     type: String,
     default: '_id',
@@ -69,4 +69,8 @@ export const tableProps = buildProps({
     type: Boolean,
     default: false,
   },
-})
+  axios: {
+    type: Function as PropType<AxiosInstance>,
+    default: null,
+  }
+}
