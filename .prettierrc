@@ -1,9 +1,0 @@
-{
-  "semi": false,
-  "singleQuote": true,
-  "trailingComma": "es5",
-  "bracketSameLine": true,
-  "htmlWhitespaceSensitivity": "ignore",
-  "vueIndentScriptAndStyle": false,
-  "singleAttributePerLine": false
-}

@@ -92,7 +92,7 @@ import { computed } from 'vue'
 import { watch } from 'vue'
 import axios from 'axios'
 
-import { tableProps} from './table'
+import { tableProps } from './props'
 
 defineOptions({
   name: 'ETable',

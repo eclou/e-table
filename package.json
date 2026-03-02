@@ -1,34 +1,48 @@
 {
-  "name": "@eclou/e-table",
+  "name": "e-table",
   "version": "1.0.0",
-  "description": "element table components",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "element",
-    "table"
+  "description": "A Vue 3 table component with CRUD support built on Element Plus",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
   ],
+  "keywords": [
+    "vue",
+    "table",
+    "component",
+    "element-plus",
+    "crud"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eclou/e-table.git"
+  },
   "author": "eclou",
   "license": "MIT",
-  "devDependencies": {
-    "@eslint/js": "^9.37.0",
-    "@typescript-eslint/eslint-plugin": "^8.46.1",
-    "@typescript-eslint/parser": "^8.46.1",
-    "eslint": "^9.37.0",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-vue": "^10.5.1",
-    "globals": "^16.4.0",
-    "jiti": "^2.6.1",
-    "prettier": "^3.6.2",
-    "prettier-plugin-vue": "^1.1.6",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.46.1",
-    "vue-eslint-parser": "^10.2.0"
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build:types": "vue-tsc -p tsconfig.build.json",
+    "build": "npm run build:types && vite build",
+    "postbuild": "node -e \"const fs=require('fs');fs.copyFileSync('src/index.d.ts','dist/index.d.ts')\"",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "axios": "^1.12.2",
-    "element-plus": "^2.11.4"
+    "axios": "^1.13.6",
+    "element-plus": "^2.13.3",
+    "vue": "^3.5.25"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "@vitejs/plugin-vue": "^6.0.2",
+    "@vue/tsconfig": "^0.8.1",
+    "typescript": "~5.9.3",
+    "vite": "^7.3.1",
+    "vue-tsc": "^3.1.5"
   }
 }
