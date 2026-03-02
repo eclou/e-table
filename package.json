@@ -1,5 +1,5 @@
 {
-  "name": "e-table",
+  "name": "@eclou/e-table",
   "version": "1.0.0",
   "description": "A Vue 3 table component with CRUD support built on Element Plus",
   "type": "module",
