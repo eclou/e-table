@@ -1,15 +1,21 @@
 {
   "extends": "./tsconfig.app.json",
   "compilerOptions": {
-    "composite": true,
+    // "composite": true,
     "emitDeclarationOnly": true,
     "declaration": true,
-    "declarationDir": "dist/types",
-    "outDir": "dist/types",
-    "skipLibCheck": true
+    // emit declarations alongside compiled ESM/CJS bundles
+    "declarationDir": "dist",
+    // "outDir": "dist/types",
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "allowJs": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true
   },
   "include": [
-    "src/components/**/*.ts",
-    "src/components/**/*.vue"
+    // all TS/JS/Vue sources so that the root export file is processed
+    "src/**/*"
   ]
 }

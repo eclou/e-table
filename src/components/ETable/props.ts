@@ -74,3 +74,5 @@ export const tableProps = {
     default: null,
   }
 }
+
+export type TableProps = typeof tableProps;

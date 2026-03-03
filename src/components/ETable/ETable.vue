@@ -97,9 +97,8 @@ import { tableProps } from './props'
 defineOptions({
   name: 'ETable',
 })
-
-
 const props = defineProps(tableProps)
+
 const emit = defineEmits([
   'beforeFilter',
   'afterFilter',
@@ -141,7 +140,6 @@ const PageLayout = computed(() => {
     return 'prev, pager, next'
   }
 })
-
 
 if (props.initFilter) {
   filter.value = props.initFilter
@@ -245,7 +243,7 @@ const toggleFormVisible = () => {
   }
 }
 
-const showEdit = (row: unknown) => {
+const showEdit: (row: unknown) => void = (row) => {
   form.value = Object.assign({}, row)
   formVisiable.value = true
   action.value = 'edit'
@@ -319,9 +317,10 @@ const submit = () => {
   })
 }
 
-const deleteItem = (row: { [key: string]: unknown }) => {
-  const pk = row[props.pk] || ''
-  const noticeField = row[props.noticeFiled] || ''
+const deleteItem: (row: unknown) => void = (row) => {
+  const obj = row as { [key: string]: unknown }
+  const pk = obj[props.pk] || ''
+  const noticeField = obj[props.noticeFiled] || ''
   const requestMethod = props.requestMethod.deleteUrl || 'POST'
   ElMessageBox.confirm(
     'are you sure continue to del this item' + (noticeField ? `[${noticeField}]?` : '?'),
