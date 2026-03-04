@@ -34,11 +34,13 @@ Follow these steps before running `npm publish`:
    npm publish --access public
    ```
 
-Consumers can import the component via:
+Consumers can import/use the package via:
 ```js
-import { ETable } from 'e-table'
+import ETable from 'e-table' // default export is the component itself
 // or
-import ETable from 'e-table'
+import { ETable, ETablePlugin } from 'e-table'
+
+app.use(ETablePlugin) // optional global registration
 ```
 
 
