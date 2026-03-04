@@ -1,4 +1,10 @@
-// re-export component (named and default) and related types
-export { default as ETable } from './components/ETable'
-export { default } from './components/ETable'
-export type { TableProps } from './components/ETable/props'
+import type { App,Plugin } from 'vue';
+import ETable from './components/ETable.vue';
+
+const ETablePlugin: Plugin = {
+  install(app: App) {
+    app.component('ETable', ETable);
+  }
+}
+export { ETable };
+export default ETablePlugin;

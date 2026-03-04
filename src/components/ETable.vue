@@ -124,7 +124,7 @@ const formRef = ref<FormInstance>()
 const TableRef = ref<InstanceType<typeof ElTable>>()
 const loading = ref(false)
 const submiting = ref(false)
-const filterTimer = ref<number>()
+const filterTimer = ref<ReturnType<typeof setTimeout> | undefined>()
 
 const request = props.axios || axios.create()
 
@@ -370,7 +370,7 @@ watch(
       clearTimeout(filterTimer.value)
     }
     filterTimer.value = setTimeout(() => {
-      filterTimer.value = 0
+      filterTimer.value = undefined
       pageNow.value = 1
       fetchList()
     }, props.filterLazy)

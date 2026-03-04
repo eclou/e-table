@@ -7,11 +7,7 @@ import dts from 'vite-plugin-dts';
 export default defineConfig({
   plugins: [vue(), dts({ 
       insertTypesEntry: true, // 自动在 package.json 的 types 字段生成入口
-      cleanVueFileName: true, // 清理文件名中的 .vue 后缀
-      include: ['src/**/*.ts', 'src/**/*.vue', 'src/**/*.d.ts'],
-      entryRoot: 'src',
-      outDir: 'dist/types',
-      copyDtsFiles: true,
+      rollupTypes: true, // 使用 Rollup 进行类型文件打包
     })],
   build: {
     lib: {
