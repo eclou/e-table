@@ -210,7 +210,3 @@ const resetTable = () => tableRef.value?.clear()
 
 - 当前源码字段名为 `defualtFilter`、`noticeFiled`，使用时请按该拼写传参。
 - 组件会把未声明的属性通过 `$attrs` 透传到 `el-table`，可直接使用 Element Plus 的表格属性和事件。
-
-## 对外发布
-
-维护者发布与回滚流程见：[对外发布文档](./docs/RELEASE.md)
